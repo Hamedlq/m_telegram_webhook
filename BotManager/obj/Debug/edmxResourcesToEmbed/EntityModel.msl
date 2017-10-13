@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Mibarim_plusModelStoreContainer" CdmEntityContainer="Mibarim_plusEntities">
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="Mibarim_plusModel.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Family" ColumnName="Family" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UserRole" ColumnName="UserRole" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="MobileConfirmed" ColumnName="MobileConfirmed" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Invites">
+      <EntityTypeMapping TypeName="Mibarim_plusModel.Invite">
+        <MappingFragment StoreEntitySet="Invite">
+          <ScalarProperty Name="InviteId" ColumnName="InviteId" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="InviteCode" ColumnName="InviteCode" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="InviterUserId" ColumnName="InviterUserId" />
+          <ScalarProperty Name="InviteType" ColumnName="InviteType" />
+          <ScalarProperty Name="InviterId" ColumnName="InviterId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserInfoes">
+      <EntityTypeMapping TypeName="Mibarim_plusModel.UserInfo">
+        <MappingFragment StoreEntitySet="UserInfo">
+          <ScalarProperty Name="UserInfoId" ColumnName="UserInfoId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="NationalCode" ColumnName="NationalCode" />
+          <ScalarProperty Name="UserPic" ColumnName="UserPic" />
+          <ScalarProperty Name="UserInfoCreateTime" ColumnName="UserInfoCreateTime" />
+          <ScalarProperty Name="UserInfoIsDeleted" ColumnName="UserInfoIsDeleted" />
+          <ScalarProperty Name="UserImageId" ColumnName="UserImageId" />
+          <ScalarProperty Name="NationalCardImageId" ColumnName="NationalCardImageId" />
+          <ScalarProperty Name="VerifiedLevel" ColumnName="VerifiedLevel" />
+          <ScalarProperty Name="TripId" ColumnName="TripId" />
+          <ScalarProperty Name="Smscount" ColumnName="Smscount" />
+          <ScalarProperty Name="ValidatingTry" ColumnName="ValidatingTry" />
+          <ScalarProperty Name="UserUId" ColumnName="UserUId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Trips">
+      <EntityTypeMapping TypeName="Mibarim_plusModel.Trip">
+        <MappingFragment StoreEntitySet="Trip">
+          <ScalarProperty Name="TEmptySeat" ColumnName="TEmptySeat" />
+          <ScalarProperty Name="TState" ColumnName="TState" />
+          <ScalarProperty Name="TStartTime" ColumnName="TStartTime" />
+          <ScalarProperty Name="TCreateTime" ColumnName="TCreateTime" />
+          <ScalarProperty Name="DriverRouteId" ColumnName="DriverRouteId" />
+          <ScalarProperty Name="TripId" ColumnName="TripId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StationRoutes">
+      <EntityTypeMapping TypeName="Mibarim_plusModel.StationRoute">
+        <MappingFragment StoreEntitySet="StationRoute">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="DurationMax" ColumnName="DurationMax" />
+          <ScalarProperty Name="DistanceMax" ColumnName="DistanceMax" />
+          <ScalarProperty Name="DurationMid" ColumnName="DurationMid" />
+          <ScalarProperty Name="DistanceMid" ColumnName="DistanceMid" />
+          <ScalarProperty Name="DurationMin" ColumnName="DurationMin" />
+          <ScalarProperty Name="DistanceMin" ColumnName="DistanceMin" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="PassPrice" ColumnName="PassPrice" />
+          <ScalarProperty Name="DriverPrice" ColumnName="DriverPrice" />
+          <ScalarProperty Name="DstMStationId" ColumnName="DstMStationId" />
+          <ScalarProperty Name="SrcMStationId" ColumnName="SrcMStationId" />
+          <ScalarProperty Name="StationRouteId" ColumnName="StationRouteId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwDriverTrips">
+      <EntityTypeMapping TypeName="Mibarim_plusModel.vwDriverTrip">
+        <MappingFragment StoreEntitySet="vwDriverTrip">
+          <ScalarProperty Name="StationRouteId" ColumnName="StationRouteId" />
+          <ScalarProperty Name="VerifiedLevel" ColumnName="VerifiedLevel" />
+          <ScalarProperty Name="PassPrice" ColumnName="PassPrice" />
+          <ScalarProperty Name="DriverPrice" ColumnName="DriverPrice" />
+          <ScalarProperty Name="DstMainStLng" ColumnName="DstMainStLng" />
+          <ScalarProperty Name="DstMainStLat" ColumnName="DstMainStLat" />
+          <ScalarProperty Name="DstMainStName" ColumnName="DstMainStName" />
+          <ScalarProperty Name="SrcStlng" ColumnName="SrcStlng" />
+          <ScalarProperty Name="SrcStLat" ColumnName="SrcStLat" />
+          <ScalarProperty Name="SrcStAdd" ColumnName="SrcStAdd" />
+          <ScalarProperty Name="SrcMainStGeo" ColumnName="SrcMainStGeo" />
+          <ScalarProperty Name="SrcMainStLng" ColumnName="SrcMainStLng" />
+          <ScalarProperty Name="SrcMainStLat" ColumnName="SrcMainStLat" />
+          <ScalarProperty Name="SrcMainStationId" ColumnName="SrcMainStationId" />
+          <ScalarProperty Name="SrcMainStName" ColumnName="SrcMainStName" />
+          <ScalarProperty Name="TripId" ColumnName="TripId" />
+          <ScalarProperty Name="CarPlateNo" ColumnName="CarPlateNo" />
+          <ScalarProperty Name="CarColor" ColumnName="CarColor" />
+          <ScalarProperty Name="CarType" ColumnName="CarType" />
+          <ScalarProperty Name="UserImageId" ColumnName="UserImageId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Family" ColumnName="Family" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="DriverRouteId" ColumnName="DriverRouteId" />
+          <ScalarProperty Name="TEmptySeat" ColumnName="TEmptySeat" />
+          <ScalarProperty Name="TState" ColumnName="TState" />
+          <ScalarProperty Name="TStartTime" ColumnName="TStartTime" />
+          <ScalarProperty Name="TCreateTime" ColumnName="TCreateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TelegramMsgs">
+      <EntityTypeMapping TypeName="Mibarim_plusModel.TelegramMsg">
+        <MappingFragment StoreEntitySet="TelegramMsgs">
+          <ScalarProperty Name="ChatId" ColumnName="ChatId" />
+          <ScalarProperty Name="TmsgMessage" ColumnName="TmsgMessage" />
+          <ScalarProperty Name="TmsgType" ColumnName="TmsgType" />
+          <ScalarProperty Name="TuserId" ColumnName="TuserId" />
+          <ScalarProperty Name="TmsgCreateTime" ColumnName="TmsgCreateTime" />
+          <ScalarProperty Name="TmsgId" ColumnName="TmsgId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TelegramUsers">
+      <EntityTypeMapping TypeName="Mibarim_plusModel.TelegramUser">
+        <MappingFragment StoreEntitySet="TelegramUsers">
+          <ScalarProperty Name="TinviteCode" ColumnName="TinviteCode" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="TmsgFamily" ColumnName="TmsgFamily" />
+          <ScalarProperty Name="TmsgName" ColumnName="TmsgName" />
+          <ScalarProperty Name="TmsgUserName" ColumnName="TmsgUserName" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="TelegramUserId" ColumnName="TelegramUserId" />
+          <ScalarProperty Name="TbotId" ColumnName="TbotId" />
+          <ScalarProperty Name="TcreateTime" ColumnName="TcreateTime" />
+          <ScalarProperty Name="TuserId" ColumnName="TuserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PassNotifs">
+      <EntityTypeMapping TypeName="Mibarim_plusModel.PassNotif">
+        <MappingFragment StoreEntitySet="PassNotif">
+          <ScalarProperty Name="NotifStatus" ColumnName="NotifStatus" />
+          <ScalarProperty Name="StationRouteId" ColumnName="StationRouteId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="PassNotifId" ColumnName="PassNotifId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PassengerRoutes">
+      <EntityTypeMapping TypeName="Mibarim_plusModel.PassengerRoute">
+        <MappingFragment StoreEntitySet="PassengerRoute">
+          <ScalarProperty Name="NotifSeq" ColumnName="NotifSeq" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="PassTime" ColumnName="PassTime" />
+          <ScalarProperty Name="StationRouteId" ColumnName="StationRouteId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="PassRouteId" ColumnName="PassRouteId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

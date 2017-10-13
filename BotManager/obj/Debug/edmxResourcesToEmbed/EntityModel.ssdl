@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Mibarim_plusModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Family" Type="nvarchar(max)" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="UserRole" Type="nvarchar(max)" />
+    <Property Name="Gender" Type="int" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="MobileConfirmed" Type="bit" />
+    <Property Name="Code" Type="nvarchar" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="Invite">
+    <Key>
+      <PropertyRef Name="InviteId" />
+    </Key>
+    <Property Name="InviteId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="InviteCode" Type="nvarchar" MaxLength="11" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="InviterUserId" Type="int" />
+    <Property Name="InviteType" Type="smallint" />
+    <Property Name="InviterId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="PassengerRoute">
+    <Key>
+      <PropertyRef Name="PassRouteId" />
+    </Key>
+    <Property Name="PassRouteId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+    <Property Name="StationRouteId" Type="bigint" Nullable="false" />
+    <Property Name="PassTime" Type="datetime" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="NotifSeq" Type="smallint" />
+  </EntityType>
+  <EntityType Name="PassNotif">
+    <Key>
+      <PropertyRef Name="PassNotifId" />
+    </Key>
+    <Property Name="PassNotifId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+    <Property Name="StationRouteId" Type="bigint" Nullable="false" />
+    <Property Name="NotifStatus" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StationRoute">
+    <Key>
+      <PropertyRef Name="StationRouteId" />
+    </Key>
+    <Property Name="StationRouteId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SrcMStationId" Type="bigint" Nullable="false" />
+    <Property Name="DstMStationId" Type="bigint" Nullable="false" />
+    <Property Name="DriverPrice" Type="bigint" />
+    <Property Name="PassPrice" Type="bigint" />
+    <Property Name="Duration" Type="bigint" />
+    <Property Name="DistanceMin" Type="bigint" />
+    <Property Name="DurationMin" Type="bigint" />
+    <Property Name="DistanceMid" Type="bigint" />
+    <Property Name="DurationMid" Type="bigint" />
+    <Property Name="DistanceMax" Type="bigint" />
+    <Property Name="DurationMax" Type="bigint" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="TelegramMsgs">
+    <Key>
+      <PropertyRef Name="TmsgId" />
+    </Key>
+    <Property Name="TmsgId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TmsgCreateTime" Type="datetime" Nullable="false" />
+    <Property Name="TuserId" Type="bigint" Nullable="false" />
+    <Property Name="TmsgType" Type="int" Nullable="false" />
+    <Property Name="TmsgMessage" Type="varchar(max)" />
+    <Property Name="ChatId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="TelegramUsers">
+    <Key>
+      <PropertyRef Name="TuserId" />
+    </Key>
+    <Property Name="TuserId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TcreateTime" Type="datetime" Nullable="false" />
+    <Property Name="TbotId" Type="int" />
+    <Property Name="TelegramUserId" Type="bigint" Nullable="false" />
+    <Property Name="UserId" Type="bigint" />
+    <Property Name="TmsgUserName" Type="nvarchar" MaxLength="64" />
+    <Property Name="TmsgName" Type="nvarchar" MaxLength="64" />
+    <Property Name="TmsgFamily" Type="nvarchar" MaxLength="64" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="16" />
+    <Property Name="TinviteCode" Type="nvarchar" MaxLength="16" />
+  </EntityType>
+  <EntityType Name="Trip">
+    <Key>
+      <PropertyRef Name="TripId" />
+    </Key>
+    <Property Name="TripId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DriverRouteId" Type="bigint" Nullable="false" />
+    <Property Name="TCreateTime" Type="datetime" Nullable="false" />
+    <Property Name="TStartTime" Type="datetime" Nullable="false" />
+    <Property Name="TState" Type="smallint" Nullable="false" />
+    <Property Name="TEmptySeat" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserInfo">
+    <Key>
+      <PropertyRef Name="UserInfoId" />
+    </Key>
+    <Property Name="UserInfoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="NationalCode" Type="nvarchar" MaxLength="20" />
+    <Property Name="UserPic" Type="varbinary(max)" />
+    <Property Name="UserInfoCreateTime" Type="datetime" Nullable="false" />
+    <Property Name="UserInfoIsDeleted" Type="bit" Nullable="false" />
+    <Property Name="UserImageId" Type="uniqueidentifier" />
+    <Property Name="NationalCardImageId" Type="uniqueidentifier" />
+    <Property Name="VerifiedLevel" Type="smallint" />
+    <Property Name="TripId" Type="bigint" />
+    <Property Name="Smscount" Type="int" />
+    <Property Name="ValidatingTry" Type="int" />
+    <Property Name="UserUId" Type="uniqueidentifier" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Mibarim_plus.dbo.vwDriverTrip' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwDriverTrip">
+    <Key>
+      <PropertyRef Name="TCreateTime" />
+      <PropertyRef Name="TStartTime" />
+      <PropertyRef Name="TState" />
+      <PropertyRef Name="TEmptySeat" />
+      <PropertyRef Name="DriverRouteId" />
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="TripId" />
+      <PropertyRef Name="StationRouteId" />
+    </Key>
+    <Property Name="TCreateTime" Type="datetime" Nullable="false" />
+    <Property Name="TStartTime" Type="datetime" Nullable="false" />
+    <Property Name="TState" Type="smallint" Nullable="false" />
+    <Property Name="TEmptySeat" Type="smallint" Nullable="false" />
+    <Property Name="DriverRouteId" Type="bigint" Nullable="false" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Family" Type="nvarchar(max)" />
+    <Property Name="Gender" Type="int" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="UserImageId" Type="uniqueidentifier" />
+    <Property Name="CarType" Type="nvarchar" MaxLength="50" />
+    <Property Name="CarColor" Type="nvarchar" MaxLength="50" />
+    <Property Name="CarPlateNo" Type="nvarchar" MaxLength="20" />
+    <Property Name="TripId" Type="bigint" Nullable="false" />
+    <Property Name="SrcMainStName" Type="nvarchar" MaxLength="32" />
+    <Property Name="SrcMainStationId" Type="bigint" />
+    <Property Name="SrcMainStLat" Type="decimal" Precision="20" Scale="17" />
+    <Property Name="SrcMainStLng" Type="decimal" Precision="20" Scale="17" />
+    <Property Name="SrcMainStGeo" Type="geography" />
+    <Property Name="SrcStAdd" Type="nvarchar" MaxLength="512" />
+    <Property Name="SrcStLat" Type="decimal" Precision="20" Scale="17" />
+    <Property Name="SrcStlng" Type="decimal" Precision="20" Scale="17" />
+    <Property Name="DstMainStName" Type="nvarchar" MaxLength="32" />
+    <Property Name="DstMainStLat" Type="decimal" Precision="20" Scale="17" />
+    <Property Name="DstMainStLng" Type="decimal" Precision="20" Scale="17" />
+    <Property Name="DriverPrice" Type="bigint" />
+    <Property Name="PassPrice" Type="bigint" />
+    <Property Name="VerifiedLevel" Type="smallint" />
+    <Property Name="StationRouteId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_UserInfo_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInfo">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Mibarim_plusModelStoreContainer">
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Invite" EntityType="Self.Invite" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PassengerRoute" EntityType="Self.PassengerRoute" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PassNotif" EntityType="Self.PassNotif" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StationRoute" EntityType="Self.StationRoute" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TelegramMsgs" EntityType="Self.TelegramMsgs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TelegramUsers" EntityType="Self.TelegramUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Trip" EntityType="Self.Trip" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vwDriverTrip" EntityType="Self.vwDriverTrip" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwDriverTrip].[TCreateTime] AS [TCreateTime], 
+    [vwDriverTrip].[TStartTime] AS [TStartTime], 
+    [vwDriverTrip].[TState] AS [TState], 
+    [vwDriverTrip].[TEmptySeat] AS [TEmptySeat], 
+    [vwDriverTrip].[DriverRouteId] AS [DriverRouteId], 
+    [vwDriverTrip].[UserId] AS [UserId], 
+    [vwDriverTrip].[Name] AS [Name], 
+    [vwDriverTrip].[Family] AS [Family], 
+    [vwDriverTrip].[Gender] AS [Gender], 
+    [vwDriverTrip].[UserName] AS [UserName], 
+    [vwDriverTrip].[UserImageId] AS [UserImageId], 
+    [vwDriverTrip].[CarType] AS [CarType], 
+    [vwDriverTrip].[CarColor] AS [CarColor], 
+    [vwDriverTrip].[CarPlateNo] AS [CarPlateNo], 
+    [vwDriverTrip].[TripId] AS [TripId], 
+    [vwDriverTrip].[SrcMainStName] AS [SrcMainStName], 
+    [vwDriverTrip].[SrcMainStationId] AS [SrcMainStationId], 
+    [vwDriverTrip].[SrcMainStLat] AS [SrcMainStLat], 
+    [vwDriverTrip].[SrcMainStLng] AS [SrcMainStLng], 
+    [vwDriverTrip].[SrcMainStGeo] AS [SrcMainStGeo], 
+    [vwDriverTrip].[SrcStAdd] AS [SrcStAdd], 
+    [vwDriverTrip].[SrcStLat] AS [SrcStLat], 
+    [vwDriverTrip].[SrcStlng] AS [SrcStlng], 
+    [vwDriverTrip].[DstMainStName] AS [DstMainStName], 
+    [vwDriverTrip].[DstMainStLat] AS [DstMainStLat], 
+    [vwDriverTrip].[DstMainStLng] AS [DstMainStLng], 
+    [vwDriverTrip].[DriverPrice] AS [DriverPrice], 
+    [vwDriverTrip].[PassPrice] AS [PassPrice], 
+    [vwDriverTrip].[VerifiedLevel] AS [VerifiedLevel], 
+    [vwDriverTrip].[StationRouteId] AS [StationRouteId]
+    FROM [dbo].[vwDriverTrip] AS [vwDriverTrip]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_UserInfo_AspNetUsers" Association="Self.FK_UserInfo_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="UserInfo" EntitySet="UserInfo" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

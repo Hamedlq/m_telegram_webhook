@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebHook", "WebHook\WebHook.csproj", "{97C91678-4323-4C99-81AD-AFF3C862CE8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KntuWebHook", "KntuWebHook\KntuWebHook.csproj", "{35D692CF-E6DA-49A9-8D52-F12E65A72C4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BotManager", "BotManager\BotManager.csproj", "{462CC8E3-27A8-499E-8F60-7BB7E779D6CB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{97C91678-4323-4C99-81AD-AFF3C862CE8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97C91678-4323-4C99-81AD-AFF3C862CE8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97C91678-4323-4C99-81AD-AFF3C862CE8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97C91678-4323-4C99-81AD-AFF3C862CE8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35D692CF-E6DA-49A9-8D52-F12E65A72C4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35D692CF-E6DA-49A9-8D52-F12E65A72C4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35D692CF-E6DA-49A9-8D52-F12E65A72C4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35D692CF-E6DA-49A9-8D52-F12E65A72C4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{462CC8E3-27A8-499E-8F60-7BB7E779D6CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{462CC8E3-27A8-499E-8F60-7BB7E779D6CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{462CC8E3-27A8-499E-8F60-7BB7E779D6CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{462CC8E3-27A8-499E-8F60-7BB7E779D6CB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

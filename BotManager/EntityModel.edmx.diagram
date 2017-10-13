@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2d67269e7b064f7a87599c2e18dc4c8a" Name="Diagram1">
+        <EntityTypeShape EntityType="Mibarim_plusModel.AspNetUser" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Mibarim_plusModel.Invite" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Mibarim_plusModel.UserInfo" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <AssociationConnector Association="Mibarim_plusModel.FK_UserInfo_AspNetUsers" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Mibarim_plusModel.Trip" Width="1.5" PointX="3.375" PointY="7.75" />
+        <EntityTypeShape EntityType="Mibarim_plusModel.StationRoute" Width="1.5" PointX="7.375" PointY="7.75" />
+        <EntityTypeShape EntityType="Mibarim_plusModel.vwDriverTrip" Width="1.5" PointX="9.375" PointY="0.75" />
+        <EntityTypeShape EntityType="Mibarim_plusModel.TelegramMsg" Width="1.5" PointX="5.375" PointY="4.75" />
+        <EntityTypeShape EntityType="Mibarim_plusModel.TelegramUser" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="Mibarim_plusModel.PassNotif" Width="1.5" PointX="0.75" PointY="10.75" />
+        <EntityTypeShape EntityType="Mibarim_plusModel.PassengerRoute" Width="1.5" PointX="9.375" PointY="8.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

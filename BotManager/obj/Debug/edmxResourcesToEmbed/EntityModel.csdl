@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Mibarim_plusModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AspNetUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Family" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserRole" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="Int32" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MobileConfirmed" Type="Boolean" />
+    <Property Name="Code" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="UserInfoes" Relationship="Self.FK_UserInfo_AspNetUsers" FromRole="AspNetUsers" ToRole="UserInfo" />
+  </EntityType>
+  <EntityType Name="Invite">
+    <Key>
+      <PropertyRef Name="InviteId" />
+    </Key>
+    <Property Name="InviteId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="InviteCode" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="InviterUserId" Type="Int32" />
+    <Property Name="InviteType" Type="Int16" />
+    <Property Name="InviterId" Type="Int64" />
+  </EntityType>
+  <EntityType Name="UserInfo">
+    <Key>
+      <PropertyRef Name="UserInfoId" />
+    </Key>
+    <Property Name="UserInfoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="NationalCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="UserPic" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="UserInfoCreateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UserInfoIsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="UserImageId" Type="Guid" />
+    <Property Name="NationalCardImageId" Type="Guid" />
+    <Property Name="VerifiedLevel" Type="Int16" />
+    <Property Name="TripId" Type="Int64" />
+    <Property Name="Smscount" Type="Int32" />
+    <Property Name="ValidatingTry" Type="Int32" />
+    <Property Name="UserUId" Type="Guid" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_UserInfo_AspNetUsers" FromRole="UserInfo" ToRole="AspNetUsers" />
+  </EntityType>
+  <Association Name="FK_UserInfo_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+    <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserInfo">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Mibarim_plusEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+    <EntitySet Name="Invites" EntityType="Self.Invite" />
+    <EntitySet Name="UserInfoes" EntityType="Self.UserInfo" />
+    <AssociationSet Name="FK_UserInfo_AspNetUsers" Association="Self.FK_UserInfo_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="UserInfo" EntitySet="UserInfoes" />
+    </AssociationSet>
+    <EntitySet Name="Trips" EntityType="Mibarim_plusModel.Trip" />
+    <EntitySet Name="StationRoutes" EntityType="Mibarim_plusModel.StationRoute" />
+    <EntitySet Name="vwDriverTrips" EntityType="Mibarim_plusModel.vwDriverTrip" />
+    <EntitySet Name="TelegramMsgs" EntityType="Mibarim_plusModel.TelegramMsg" />
+    <EntitySet Name="TelegramUsers" EntityType="Mibarim_plusModel.TelegramUser" />
+    <EntitySet Name="PassNotifs" EntityType="Mibarim_plusModel.PassNotif" />
+    <EntitySet Name="PassengerRoutes" EntityType="Mibarim_plusModel.PassengerRoute" />
+  </EntityContainer>
+  <EntityType Name="Trip">
+    <Key>
+      <PropertyRef Name="TripId" />
+    </Key>
+    <Property Name="TripId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DriverRouteId" Type="Int64" Nullable="false" />
+    <Property Name="TCreateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TStartTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TState" Type="Int16" Nullable="false" />
+    <Property Name="TEmptySeat" Type="Int16" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StationRoute">
+    <Key>
+      <PropertyRef Name="StationRouteId" />
+    </Key>
+    <Property Name="StationRouteId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SrcMStationId" Type="Int64" Nullable="false" />
+    <Property Name="DstMStationId" Type="Int64" Nullable="false" />
+    <Property Name="DriverPrice" Type="Int64" />
+    <Property Name="PassPrice" Type="Int64" />
+    <Property Name="Duration" Type="Int64" />
+    <Property Name="DistanceMin" Type="Int64" />
+    <Property Name="DurationMin" Type="Int64" />
+    <Property Name="DistanceMid" Type="Int64" />
+    <Property Name="DurationMid" Type="Int64" />
+    <Property Name="DistanceMax" Type="Int64" />
+    <Property Name="DurationMax" Type="Int64" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="vwDriverTrip">
+    <Key>
+      <PropertyRef Name="TCreateTime" />
+      <PropertyRef Name="TStartTime" />
+      <PropertyRef Name="TState" />
+      <PropertyRef Name="TEmptySeat" />
+      <PropertyRef Name="DriverRouteId" />
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="TripId" />
+      <PropertyRef Name="StationRouteId" />
+    </Key>
+    <Property Name="TCreateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TStartTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TState" Type="Int16" Nullable="false" />
+    <Property Name="TEmptySeat" Type="Int16" Nullable="false" />
+    <Property Name="DriverRouteId" Type="Int64" Nullable="false" />
+    <Property Name="UserId" Type="Int64" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Family" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="Int32" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="UserImageId" Type="Guid" />
+    <Property Name="CarType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CarColor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CarPlateNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="TripId" Type="Int64" Nullable="false" />
+    <Property Name="SrcMainStName" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="SrcMainStationId" Type="Int64" />
+    <Property Name="SrcMainStLat" Type="Decimal" Precision="20" Scale="17" />
+    <Property Name="SrcMainStLng" Type="Decimal" Precision="20" Scale="17" />
+    <Property Name="SrcMainStGeo" Type="Geography" />
+    <Property Name="SrcStAdd" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="SrcStLat" Type="Decimal" Precision="20" Scale="17" />
+    <Property Name="SrcStlng" Type="Decimal" Precision="20" Scale="17" />
+    <Property Name="DstMainStName" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="DstMainStLat" Type="Decimal" Precision="20" Scale="17" />
+    <Property Name="DstMainStLng" Type="Decimal" Precision="20" Scale="17" />
+    <Property Name="DriverPrice" Type="Int64" />
+    <Property Name="PassPrice" Type="Int64" />
+    <Property Name="VerifiedLevel" Type="Int16" />
+    <Property Name="StationRouteId" Type="Int64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TelegramMsg">
+    <Key>
+      <PropertyRef Name="TmsgId" />
+    </Key>
+    <Property Name="TmsgId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TmsgCreateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TuserId" Type="Int64" Nullable="false" />
+    <Property Name="TmsgType" Type="Int32" Nullable="false" />
+    <Property Name="TmsgMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ChatId" Type="Int64" />
+  </EntityType>
+  <EntityType Name="TelegramUser">
+    <Key>
+      <PropertyRef Name="TuserId" />
+    </Key>
+    <Property Name="TuserId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TcreateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TbotId" Type="Int32" />
+    <Property Name="TelegramUserId" Type="Int64" Nullable="false" />
+    <Property Name="UserId" Type="Int64" />
+    <Property Name="TmsgUserName" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="TmsgName" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="TmsgFamily" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="TinviteCode" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PassNotif">
+    <Key>
+      <PropertyRef Name="PassNotifId" />
+    </Key>
+    <Property Name="PassNotifId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UserId" Type="Int64" Nullable="false" />
+    <Property Name="StationRouteId" Type="Int64" Nullable="false" />
+    <Property Name="NotifStatus" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PassengerRoute">
+    <Key>
+      <PropertyRef Name="PassRouteId" />
+    </Key>
+    <Property Name="PassRouteId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UserId" Type="Int64" Nullable="false" />
+    <Property Name="StationRouteId" Type="Int64" Nullable="false" />
+    <Property Name="PassTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="NotifSeq" Type="Int16" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,2 @@
+D:\Mibarim\CoreSln\TelegramBot\MibarimBot\BotWebHook\WebHook\bin\Debug\WebHook.exe.config
+D:\Mibarim\CoreSln\TelegramBot\MibarimBot\BotWebHook\WebHook\obj\Debug\WebHook.csprojResolveAssemblyReference.cache
